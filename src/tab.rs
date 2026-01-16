@@ -6189,17 +6189,6 @@ impl Tab {
 
         #[cfg(unix)]
         {
-            // The following is a bit of a hack to make the dropdown selector
-            // fill the available space when selected is None so it can be
-            // clicked on easier.
-            fn dropdown_width(use_default: bool) -> Length {
-                if use_default {
-                    Length::Shrink
-                } else {
-                    Length::Fill
-                }
-            }
-
             // Only return mode part if it's the only one
             fn selected_mode_part(mut modes: BTreeSet<u32>) -> Option<usize> {
                 match (modes.pop_first(), modes.pop_first()) {
@@ -6235,7 +6224,7 @@ impl Tab {
                                 )
                             },
                         )
-                        .width(dropdown_width(mode_part_user.is_some())),
+                        .placeholder(fl!("mixed")),
                     ),
             );
 
@@ -6255,7 +6244,7 @@ impl Tab {
                                 )
                             },
                         )
-                        .width(dropdown_width(mode_part_group.is_some())),
+                        .placeholder(fl!("mixed")),
                     ),
             );
 
@@ -6273,7 +6262,7 @@ impl Tab {
                             )
                         },
                     )
-                    .width(dropdown_width(mode_part_other.is_some())),
+                    .placeholder(fl!("mixed")),
                 ),
             );
         }
