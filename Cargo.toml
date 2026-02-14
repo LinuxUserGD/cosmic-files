@@ -19,7 +19,7 @@ glib = { version = "0.21", optional = true }
 glob = "0.3"
 ignore = "0.4"
 image = "0.25"
-libc = "0.2"
+libc = { git = "https://github.com/LinuxUserGD/libc.git", branch = "main" }
 log = "0.4"
 mime_guess = "2"
 notify-debouncer-full = "0.7"
